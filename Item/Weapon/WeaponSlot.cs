@@ -14,6 +14,12 @@ public class WeaponSlot : Slot //EquipmentSlot
         this.Assign(item.item_Sprite);
         return true;
     }
+    public void ChangeWeapon()
+    {
+        WeaponData data=new WeaponData();
+
+    }
+
     public override void Unassign()
     {
         base.Unassign();

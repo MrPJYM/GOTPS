@@ -10,11 +10,14 @@ public class WeaponInventoryObj : InventoryObj
     {
         WeaponSlot tmp = slots[i] as WeaponSlot;
         tmp.AssignWeapon(data);
-
     }
     private void start()
     {
         weaponManager = control.WM;
+        foreach(WeaponSlot slot in slots)
+        {
+            weaponManager.weaponChangeF += slot.ChangeWeapon;
+        }
     }
     public override void EndDrag(Slot select, Slot target)
     {

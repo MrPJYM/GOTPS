@@ -60,9 +60,11 @@ public class ItemData
     public bool Wizard;
     //string Icon;
     public int Price;
+    //sprite,prefeb 불러오기 이름
     public string item_Sprite_Name;
     public Sprite item_Sprite;
     public string itemPrefebName;
+
     public override bool Equals(object obj)
     {
         ItemData target = obj as ItemData;

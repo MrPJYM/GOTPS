@@ -1,5 +1,10 @@
 using UnityEngine;
 
+
+public struct CameraSetting
+{
+    public float moveSpeed;
+}
 public class ChracterRotateState : BaseState
 {
     float RotateSpeed;
@@ -22,6 +27,16 @@ public class ChracterRotateState : BaseState
         //xAxis = Mathf.Clamp(control.virtualCamera.LookAt.rotation.eulerAngles.x + deg2, -30f, 30f);
         control.virtualCamera.LookAt.localRotation = Quaternion.Euler(control.virtualCamera.LookAt.rotation.eulerAngles.x + deg2,
             0f, 0f);
+
+
+        //Vector3 eulerAngle = new Vector3();
+        //eulerAngle.x = -yAxis;
+        //eulerAngle.y = xAxis;
+
+        //newX = Mathf.Repeat(xAxis, 360f);
+        //newY = Mathf.Clamp(newY, cameraSettings.minAngle, cameraSettings.maxAngle);
+
+
         return StateAction.STATE_ACTION_NEXT;
     }
     public override void OnExit()

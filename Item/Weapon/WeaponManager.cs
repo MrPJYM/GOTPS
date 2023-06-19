@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
+    public delegate void WeaponChangeF();
+    public WeaponChangeF weaponChangeF = null;
     public Weapon_Type type;
     public Transform Aimpos;
     public RectTransform AimUI;
@@ -116,34 +118,40 @@ public class WeaponManager : MonoBehaviour
         transform.localRotation = rifleRotation[num];
         //currentObj.SetActive(true);
     }
-    public GameObject currentWeaponChange(Weapon_Type _Type, GameObject objs)
+    //public GameObject currentWeaponChange(Weapon_Type _Type, GameObject objs)
+    //{
+
+    //    //int num;
+    //    //switch (_Type)
+    //    //{
+    //    //    case Weapon_Type.AR:
+    //    //        num = 1;
+    //    //        break;
+    //    //    case Weapon_Type.GUN:
+    //    //        num = 1;
+    //    //        break;
+    //    //    case Weapon_Type.SWORD:
+    //    //        num = 2;
+    //    //        break;
+    //    //    case Weapon_Type.SHOTGUN:
+    //    //        num = 1;
+    //    //        break;
+    //    //    default:
+    //    //        return null;
+    //    //}
+    //    //weaponActives[num] = objs.GetComponent<WeaponActive>();
+    //    //currentWeaponActive.GetOut();
+    //    //objs.transform.SetParent(transform);
+    //    //objs.transform.localPosition = Vector3.zero;
+    //    //GameObject returnobj = currentObj;
+    //    //currentObj = objs;
+    //    //currentWeaponActive = weaponActives[num];
+    //    //weaponChangeF();
+    //    //return returnobj;
+    //}
+    public void ChangeWeapon()
     {
-        int num;
-        switch (_Type)
-        {
-            case Weapon_Type.AR:
-                num = 1;
-                break;
-            case Weapon_Type.GUN:
-                num = 1;
-                break;
-            case Weapon_Type.SWORD:
-                num = 2;
-                break;
-            case Weapon_Type.SHOTGUN:
-                num = 1;
-                break;
-            default:
-                return null;
-        }
-        weaponActives[num] = objs.GetComponent<WeaponActive>();
-        currentWeaponActive.GetOut();
-        objs.transform.SetParent(transform);
-        objs.transform.localPosition = Vector3.zero;
-        GameObject returnobj = currentObj;
-        currentObj = objs;
-        currentWeaponActive = weaponActives[num];
-        return returnobj;
+        weaponChangeF();
     }
     public void currentObjfalse(int num)
     {
